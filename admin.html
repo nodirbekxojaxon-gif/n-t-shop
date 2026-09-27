@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — MICCA N&T</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0c; --fg:#f2efea; --fg-muted:#95918c;
+    --accent:#c1272d; --accent-dark:#7a1519; --line:#2a2a2b;
+    --card:#161617;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--fg); font-family:'Oswald',sans-serif;
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+  }
+  .login-card{
+    background:var(--card); border:1px solid var(--line); border-radius:4px;
+    padding:48px; width:100%; max-width:380px;
+  }
+  .login-card h1{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.6rem; margin-bottom:6px;
+  }
+  .login-card .sub{color:var(--fg-muted); font-size:0.85rem; margin-bottom:32px;}
+  label{display:block; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-muted); margin-bottom:6px;}
+  input{
+    width:100%; background:transparent; border:1px solid var(--line); color:var(--fg);
+    padding:12px 14px; border-radius:2px; margin-bottom:18px; font-family:'Oswald',sans-serif; outline:none;
+  }
+  input:focus{border-color:var(--accent);}
+  button{
+    width:100%; background:var(--accent); color:#fff; border:none; padding:14px;
+    font-family:'Oswald',sans-serif; letter-spacing:0.06em; text-transform:uppercase;
+    border-radius:2px; cursor:pointer; font-size:0.9rem;
+  }
+  button:hover{background:var(--accent-dark);}
+  .error{color:var(--accent); font-size:0.82rem; margin-top:14px; display:none;}
+  .warn{color:var(--fg-muted); font-size:0.72rem; margin-top:24px; line-height:1.5; border-top:1px solid var(--line); padding-top:16px;}
+
+  #dashboard{display:none; padding:60px 24px; max-width:720px; margin:0 auto;}
+  #dashboard h2{font-family:'Fraunces',serif; font-size:2rem; margin-bottom:8px;}
+  #dashboard p{color:var(--fg-muted); margin-bottom:32px;}
+  .stat-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .stat{background:var(--card); border:1px solid var(--line); padding:24px; flex:1; min-width:140px; border-radius:4px;}
+  .stat .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--accent);}
+  .stat .label{font-size:0.78rem; color:var(--fg-muted); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px;}
+</style>
+</head>
+<body>
+
+<div class="login-card" id="loginCard">
+  <h1>Admin panel</h1>
+  <div class="sub">MICCA N&T boshqaruv paneli</div>
+  <form id="loginForm">
+    <label>Login</label>
+    <input type="text" id="user" required autocomplete="off">
+    <label>Parol</label>
+    <input type="password" id="pass" required>
+    <button type="submit">Kirish</button>
+    <div class="error" id="err">Login yoki parol noto'g'ri</div>
+  </form>
+  <div class="warn">⚠ Bu — vaqtinchalik demo himoya. Haqiqiy buyurtma/mijoz ma'lumotlarini bu panelga ulashdan oldin xavfsiz tizimga (Supabase) o'tkazish kerak.</div>
+</div>
+
+<div id="dashboard">
+  <h2>Xush kelibsiz, Nodir</h2>
+  <p>MICCA N&T boshqaruv paneli — demo versiya</p>
+  <div class="stat-row">
+    <div class="stat"><div class="num">0</div><div class="label">Buyurtmalar</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">Mahsulotlar</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">Mijozlar</div></div>
+  </div>
+</div>
+
+<script>
+  const VALID_USER = "admin_nt";
+  const VALID_PASS = "Nt$hop_2026!Qr7";
+
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
+    if(u === VALID_USER && p === VALID_PASS){
+      document.getElementById('loginCard').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    } else {
+      document.getElementById('err').style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
