@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MICCA N&T — Erkaklar kiyimi va poyabzal onlayn do'koni</title>
+<meta name="description" content="MICCA N&T — Toshkentda erkaklar kiyimi, poyabzal va aksessuarlar onlayn do'koni. Sifatli mahsulotlar, tez yetkazib berish, qulay to'lov.">
+<link rel="canonical" href="https://nt-shop.vercel.app/">
 
+<meta property="og:type" content="website">
+<meta property="og:title" content="MICCA N&T — Erkaklar kiyimi va poyabzal onlayn do'koni">
+<meta property="og:description" content="Toshkentda erkaklar kiyimi, poyabzal va aksessuarlar. Sifatli mahsulotlar, tez yetkazib berish.">
+<meta property="og:locale" content="uz_UZ">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "MICCA N&T",
+  "description": "Erkaklar kiyimi, poyabzal va aksessuarlar onlayn do'koni",
+  "url": "https://nt-shop.vercel.app/",
+  "areaServed": "UZ"
+}
+</script>
+
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --bg-elevated:#161617;
+    --fg:#f2efea;
+    --fg-muted:#95918c;
+    --accent:#c1272d;
+    --accent-dark:#7a1519;
+    --line:#2a2a2b;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Oswald', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--serif);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,48px);}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,11,12,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
+  .logo{font-family:var(--serif); font-size:1.5rem; font-weight:600; letter-spacing:0.02em;}
+  .logo span{color:var(--accent);}
+  .navlinks{display:flex; gap:32px; font-family:var(--sans); font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-muted);}
+  .navlinks a:hover{color:var(--fg);}
+  .navcta{
+    font-family:var(--sans); font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--accent); color:#fff; padding:10px 22px; border-radius:2px;
+  }
+  .navcta:hover{background:var(--accent-dark);}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  .hero{
+    padding:clamp(64px,12vw,120px) 0 clamp(48px,8vw,80px);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    font-family:var(--sans); font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:20px;
+  }
+  h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    font-weight:500;
+    line-height:1.02;
+    max-width:14ch;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    font-family:var(--sans); font-weight:400; font-size:clamp(1rem,1.6vw,1.15rem);
+    color:var(--fg-muted); max-width:46ch; margin-top:28px; line-height:1.6;
+  }
+  .hero-actions{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
+  .btn-primary, .btn-secondary{
+    font-family:var(--sans); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding:16px 32px; border-radius:2px; display:inline-block;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-secondary{border:1px solid var(--line); color:var(--fg);}
+  .btn-secondary:hover{border-color:var(--fg-muted);}
+
+  .categories{padding:clamp(56px,9vw,96px) 0; border-bottom:1px solid var(--line);}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:12px;}
+  h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:500;}
+  .section-label{font-family:var(--sans); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted);}
+  .cat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .cat-card{background:var(--bg); padding:40px 28px; min-height:220px; display:flex; flex-direction:column; justify-content:flex-end; transition:background 0.25s ease;}
+  .cat-card:hover{background:var(--bg-elevated);}
+  .cat-num{font-family:var(--sans); font-size:0.75rem; color:var(--fg-muted); letter-spacing:0.1em; margin-bottom:auto;}
+  .cat-name{font-size:1.4rem; margin-top:16px;}
+  .cat-arrow{font-family:var(--sans); font-size:0.78rem; color:var(--accent); margin-top:10px; letter-spacing:0.08em; text-transform:uppercase;}
+  @media (max-width:760px){ .cat-grid{grid-template-columns:1fr;} }
+
+  .statement{padding:clamp(64px,10vw,110px) 0; border-bottom:1px solid var(--line);}
+  .statement p{
+    font-size:clamp(1.5rem,3.4vw,2.4rem); font-weight:500; line-height:1.3; max-width:22ch;
+  }
+  .statement .accent{color:var(--accent);}
+
+  .notify{padding:clamp(56px,9vw,96px) 0; border-bottom:1px solid var(--line);}
+  .notify-box{
+    display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
+    background:var(--bg-elevated); padding:clamp(32px,5vw,56px); border-radius:2px;
+  }
+  .notify h3{font-size:clamp(1.3rem,2.4vw,1.8rem); font-weight:500; max-width:20ch;}
+  .notify-form{display:flex; gap:0; border-bottom:1px solid var(--fg-muted); min-width:280px;}
+  .notify-form input{
+    background:transparent; border:none; color:var(--fg); font-family:var(--sans); font-size:0.9rem;
+    padding:12px 4px; flex:1; outline:none;
+  }
+  .notify-form input::placeholder{color:var(--fg-muted);}
+  .notify-form button{
+    background:none; border:none; color:var(--accent); font-family:var(--sans); font-size:0.85rem;
+    letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; padding:12px 4px;
+  }
+
+  footer{padding:48px 0; }
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-links{display:flex; gap:24px; font-family:var(--sans); font-size:0.8rem; color:var(--fg-muted); letter-spacing:0.04em;}
+  .foot-links a:hover{color:var(--fg);}
+  .foot-copy{font-family:var(--sans); font-size:0.78rem; color:var(--fg-muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">MICCA <span>N&T</span></div>
+    <nav class="navlinks">
+      <a href="#categories">Katalog</a>
+      <a href="#about">Biz haqimizda</a>
+      <a href="#notify">Aloqa</a>
+    </nav>
+    <a class="navcta" href="#notify">Tez orada</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Erkaklar kiyimi &amp; poyabzal</div>
+    <h1>Nafis kiyim, aniq o'lcham, ishonchli xarid.</h1>
+    <p class="hero-sub">MICCA N&T — Toshkentda erkaklar kiyimi, poyabzal va aksessuarlarni saralab yetkazuvchi onlayn do'kon. Katalogimiz tez orada ochiladi.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#notify">Ochilishdan xabardor bo'lish</a>
+      <a class="btn-secondary" href="#categories">Nima kutilmoqda</a>
+    </div>
+  </div>
+</section>
+
+<section class="categories" id="categories">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Yo'nalishlar</h2>
+      <div class="section-label">Uchta asosiy toifa</div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-num">01</div>
+        <div class="cat-name">Kiyim</div>
+        <div class="cat-arrow">Ko'ylak, kurtka, shim →</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">02</div>
+        <div class="cat-name">Poyabzal</div>
+        <div class="cat-arrow">Krossovka, botinka →</div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-num">03</div>
+        <div class="cat-name">Aksessuar</div>
+        <div class="cat-arrow">Kamar, hamyon, soat →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statement" id="about">
+  <div class="wrap">
+    <p>Har bir mahsulot <span class="accent">sifat</span> va <span class="accent">o'lcham aniqligi</span> bo'yicha tekshiriladi — sizga faqat tanlash qoladi.</p>
+  </div>
+</section>
+
+<section class="notify" id="notify">
+  <div class="wrap">
+    <div class="notify-box">
+      <h3>Do'kon ochilganda birinchilardan bo'lib biling</h3>
+      <form class="notify-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Qabul qilindi';">
+        <input type="email" placeholder="Email manzilingiz" required>
+        <button type="submit">Yuborish</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-copy">© 2026 MICCA N&T. Barcha huquqlar himoyalangan.</div>
+    <div class="foot-links">
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+      <a href="mailto:hello@nt-shop.uz">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
